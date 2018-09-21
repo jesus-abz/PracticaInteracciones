@@ -29,7 +29,18 @@ namespace PracticaInteracciones
         private void sldporcenprop_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             lblporcenprop.Text =
-                sldporcenprop.Value.ToString();
+                ((int)(sldporcenprop.Value)).ToString() +
+                "%";
+
+            float cuenta=
+            float.Parse(txtcuenta.Text);
+
+            float montoprop = (int)(sldporcenprop.Value) / 100.0f * cuenta;
+
+            float totalApagar = cuenta + montoprop;
+
+            lbltotalprop.Text = totalApagar.ToString();
+
         }
     }
 }
